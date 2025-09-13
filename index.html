@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analytics Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-gray-800 shadow-md">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-xl font-bold text-blue-400">My Portfolio</h1>
+      <nav class="space-x-4">
+        <a href="#about" class="hover:text-blue-300">About</a>
+        <a href="#projects" class="hover:text-blue-300">Projects</a>
+        <a href="#skills" class="hover:text-blue-300">Skills</a>
+        <a href="#contact" class="hover:text-blue-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 bg-gradient-to-r from-blue-900 to-blue-600">
+    <h2 class="text-4xl font-extrabold">Hi, I’m <span class="text-yellow-300">Your Name</span></h2>
+    <p class="mt-4 text-lg">Data Analyst | SQL | Python | Power BI | Tableau</p>
+    <a href="#projects" class="mt-6 inline-block bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition">View My Work</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container mx-auto px-6 py-16">
+    <h3 class="text-2xl font-bold mb-4 border-b border-blue-400 inline-block">About Me</h3>
+    <p class="text-gray-300 leading-relaxed">
+      I am a passionate Data Analyst with experience in transforming raw data into meaningful insights.
+      Skilled in Python, SQL, Excel, and modern BI tools like Power BI & Tableau.
+      I enjoy solving real-world problems through data-driven decisions.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="bg-gray-800 py-16">
+    <div class="container mx-auto px-6">
+      <h3 class="text-2xl font-bold mb-8 border-b border-blue-400 inline-block">Projects</h3>
+      <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- JS will inject project cards here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="container mx-auto px-6 py-16">
+    <h3 class="text-2xl font-bold mb-6 border-b border-blue-400 inline-block">Skills</h3>
+    <div class="flex flex-wrap gap-4">
+      <span class="bg-gray-700 px-4 py-2 rounded-lg">Python</span>
+      <span class="bg-gray-700 px-4 py-2 rounded-lg">SQL</span>
+      <span class="bg-gray-700 px-4 py-2 rounded-lg">Power BI</span>
+      <span class="bg-gray-700 px-4 py-2 rounded-lg">Tableau</span>
+      <span class="bg-gray-700 px-4 py-2 rounded-lg">Excel</span>
+      <span class="bg-gray-700 px-4 py-2 rounded-lg">Data Visualization</span>
+      <span class="bg-gray-700 px-4 py-2 rounded-lg">Machine Learning (Basics)</span>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-800 py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-2xl font-bold mb-6 border-b border-blue-400 inline-block">Contact Me</h3>
+      <p class="mb-4">Let’s collaborate or discuss opportunities. Reach me at:</p>
+      <a href="mailto:youremail@example.com" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition">Email Me</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center py-6 text-gray-400">
+    © <span id="year"></span> Your Name. All Rights Reserved.
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Example project data
+    const projects = [
+      {
+        title: "Sales Dashboard (Power BI)",
+        desc: "Created an interactive dashboard to analyze sales trends and KPIs.",
+        img: "https://via.placeholder.com/400x250?text=Sales+Dashboard",
+        link: "#"
+      },
+      {
+        title: "Customer Segmentation (Python)",
+        desc: "Applied clustering to segment customers for targeted marketing.",
+        img: "https://via.placeholder.com/400x250?text=Segmentation",
+        link: "#"
+      },
+      {
+        title: "Stock Market Analysis (SQL + Tableau)",
+        desc: "Analyzed stock data to identify patterns and visualize trends.",
+        img: "https://via.placeholder.com/400x250?text=Stock+Analysis",
+        link: "#"
+      }
+    ];
+
+    // Inject project cards
+    const grid = document.getElementById("project-grid");
+    projects.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition";
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.title}" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h4 class="text-lg font-semibold mb-2">${p.title}</h4>
+          <p class="text-gray-300 mb-3">${p.desc}</p>
+          <a href="${p.link}" class="text-blue-400 hover:underline">View Project →</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>

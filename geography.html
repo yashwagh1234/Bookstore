@@ -1,0 +1,64 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+$username = $_SESSION['username'];
+$profile_pic = !empty($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : 'default.png';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Books - MYbook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="logo">
+        <h2>MYbook</h2>
+    </div>
+    <ul class="menu">
+        <li><a href="mybook.php"><i class='bx bx-home'></i> Home</a></li>
+        <li><a href="english.html" class="active"><i class='bx bx-book'></i> English</a></li>
+        <li><a href="history.html"><i class='bx bx-book'></i> History</a></li>
+        <li><a href="logout.php"><i class='bx bx-log-out'></i> Logout</a></li>
+    </ul>
+    <div class="sidebar-user">
+        <img src="<?php echo $profile_pic; ?>" alt="Profile" class="profile-pic">
+        <span class="username"><?php echo $username; ?></span>
+    </div>
+</aside>
+
+<!-- Main content -->
+    <main class="main-content">
+    <h1>Geography Books</h1>
+    <p>Welcome to the Geography category. Here you’ll find North Pole of Earth, Hidden Truth, Rumors About Earth, and more.</p>
+
+    <div class="books-grid">
+        <div class="book-card">
+            <img src="Homeimg.png" alt="Book 1">
+            <h3>North Pole of Earth</h3>
+            <a href="https://www.gutenberg.org/" target="_blank">Read Now</a>
+        </div>
+        <div class="book-card">
+            <img src="Homeimg.png" alt="Book 2">
+            <h3>Hidden Truth</h3>
+            <a href="https://www.gutenberg.org/" target="_blank">Read Now</a>
+        </div>
+        <div class="book-card">
+            <img src="Homeimg.png" alt="Book 3">
+            <h3>Rumors About Earth</h3>
+            <a href="https://www.gutenberg.org/" target="_blank">Read Now</a>
+        </div>
+    </div>
+</main>
+
+
+</body>
+</html>
